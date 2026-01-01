@@ -24,7 +24,7 @@ A: Yes, the MIT license allows both private and commercial use.
 ### Technical Questions
 
 **Q: How do I contribute?**
-A: Feel free to contact me on <a href="https://discordapp.com/users/489418032368713728">discord</a> and suggest a feature, or create a pull request!
+A: Feel free to contact me on <a href="https://discordapp.com/users/489418032368713728" target="_blank">discord</a> and suggest a feature, or create a pull request!
 
 **Q: How do I report a bug?**
 A: Please create an issue on GitHub with a detailed description, reproduction steps and optionally a screenshot.
