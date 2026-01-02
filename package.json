@@ -1,6 +1,6 @@
 {
   "name": "bothaj-discord-bot",
-  "version": "1.0.3",
+  "version": "1.1.1",
   "description": "A bot for me with random unrelated ideas!",
   "main": "./src/index.ts",
   "repository": "https://github.com/lunarwanderer13/bothaj-discord-bot",
