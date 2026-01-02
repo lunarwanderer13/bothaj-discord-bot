@@ -9,11 +9,7 @@ import clientReady from "./events/clientReady"
 import interactionCreate from "./events/interactionCreate"
 
 export const client: Client<boolean> = new Client({
-    intents: [
-        // Any intents you might want go here
-        GatewayIntentBits.MessageContent,
-        GatewayIntentBits.GuildMessages
-    ]
+    intents: Object.values(GatewayIntentBits).filter((intent): intent is number => typeof intent === "number")
 })
 
 export interface Command {
