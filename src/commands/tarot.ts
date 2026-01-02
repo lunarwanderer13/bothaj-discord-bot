@@ -5,6 +5,7 @@ export const Tarot: Command = {
     data: new SlashCommandBuilder()
         .setName("tarot")
         .setDescription("Draw tarot cards or get info about a card.")
+        .setContexts([0, 1, 2])
         
         .addSubcommand(subcommand => subcommand
             .setName("draw")
