@@ -1,15 +1,15 @@
-# Bothaj Discord Bot
+# Blåpp Discord Bot
 
-Bothaj is a discord bot with completely unrelated and mostly unnecessary features. They don't serve any real purpose, and even if they do, only a select number of people would use them.
+Blåpp is a discord app with completely unrelated and mostly unnecessary features. They don't serve any real purpose, and even if they do, only a select number of people would use them.
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)]()
 
 ## Description
 
-Why make a useless bot then? Why, self-development and education, of course! Every commit teaches me something new which lets me improve in general as a developer, even outside of <a href="https://discord.js.org" target="_blank">discord.js</a>.
+Why make a useless app then? Why, self-development and education, of course! Every commit teaches me something new which lets me improve in general as a developer, even outside of <a href="https://discord.js.org" target="_blank">discord.js</a>.
 
-This bot's purpose isn't to satisfy users, customers or higher-ups, but to satisfy me as a developer.
+This app's purpose isn't to satisfy users, customers or higher-ups, but to satisfy me as a developer.
 
 ## FAQ
 
