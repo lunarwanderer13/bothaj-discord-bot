@@ -1,5 +1,5 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction, MessageFlags } from "discord.js"
-import { Command } from "./../index"
+import { Command } from "./../utils/config"
 
 export const Ping: Command = {
     data: new SlashCommandBuilder()

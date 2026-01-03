@@ -1,5 +1,7 @@
-import { Client, GatewayIntentBits, SlashCommandBuilder, SlashCommandSubcommandsOnlyBuilder, SlashCommandOptionsOnlyBuilder, ChatInputCommandInteraction } from "discord.js"
+import { Client, GatewayIntentBits, SlashCommandBuilder, SlashCommandSubcommandsOnlyBuilder, SlashCommandOptionsOnlyBuilder, ChatInputCommandInteraction, ColorResolvable } from "discord.js"
 import "dotenv/config"
+
+import { Command } from "./utils/config"
 
 // Import commands
 import { Ping } from "./commands/ping"
@@ -12,11 +14,6 @@ import interactionCreate from "./events/interactionCreate"
 export const client: Client<boolean> = new Client({
     intents: Object.values(GatewayIntentBits).filter((intent): intent is number => typeof intent === "number")
 })
-
-export interface Command {
-    data: SlashCommandBuilder | SlashCommandSubcommandsOnlyBuilder | SlashCommandOptionsOnlyBuilder
-    execute: (interaction: ChatInputCommandInteraction) => Promise<void>
-}
 
 export const Commands: Command[] = [
     Ping,
