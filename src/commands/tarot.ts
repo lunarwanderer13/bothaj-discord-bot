@@ -1,13 +1,13 @@
-import { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder, MessageFlags } from "discord.js"
+import { SlashCommandBuilder, ChatInputCommandInteraction, AttachmentBuilder, EmbedBuilder, MessageFlags } from "discord.js"
 import { Command, Color, Emoji, Emojis } from "./../utils/config"
 import fs from "fs"
+import sharp from "sharp"
 
 interface TarotCard {
     name: string
     type: "major_arcana" | "minor_arcana"
     upright_meaning: string,
     reversed_meaning: string,
-    url: string,
     query: string
 }
 
@@ -112,19 +112,26 @@ export const Tarot: Command = {
 
                 const info_embed: EmbedBuilder = new EmbedBuilder()
                     .setColor(Color.primary)
-                    .setImage(card.url)
-                    .setFields(
-                        {
-                            "name": "Upright meaning:",
-                            "value": card.upright_meaning,
-                            "inline": true
-                        },
-                        {
-                            "name": "Reversed meaning:",
-                            "value": card.reversed_meaning,
-                            "inline": true
-                        }
-                    )
+
+                const image_buffer = await sharp(`src/source/tarot/images/${card.query}.png`)
+                    .png()
+                    .toBuffer()
+
+                const image_attachment = new AttachmentBuilder(image_buffer, { name: `${card.query}.png` })
+                info_embed.setImage(`attachment://${image_attachment.name}`)
+
+                info_embed.setFields(
+                    {
+                        "name": "Upright meaning:",
+                        "value": card.upright_meaning,
+                        "inline": true
+                    },
+                    {
+                        "name": "Reversed meaning:",
+                        "value": card.reversed_meaning,
+                        "inline": true
+                    }
+                )
 
                 if (card.type === "major_arcana") {
                     info_embed.setTitle(`:sparkles: Info about ${card.name} card ${cards_emoji_string}`)
@@ -146,9 +153,9 @@ export const Tarot: Command = {
                 }
 
                 if (!hidden) {
-                    await interaction.reply({ embeds: [info_embed] })
+                    await interaction.reply({ embeds: [info_embed], files: [image_attachment] })
                 } else {
-                    await interaction.reply({ embeds: [info_embed], flags: MessageFlags.Ephemeral })
+                    await interaction.reply({ embeds: [info_embed], files: [image_attachment], flags: MessageFlags.Ephemeral })
                 }
                 break
         }
