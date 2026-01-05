@@ -113,7 +113,7 @@ export const Tarot: Command = {
                 if (reversed) drawn_image_buffer.rotate(180)
                 drawn_image_buffer.png().toBuffer()
 
-                const drawn_image_attachment = new AttachmentBuilder(drawn_image_buffer, { name: `${drawn_card.query}.png` })
+                const drawn_image_attachment = new AttachmentBuilder(drawn_image_buffer, { name: `${drawn_card.query.replaceAll(" ", "_")}.png` })
                 draw_embed.setImage(`attachment://${drawn_image_attachment.name}`)
 
                 if (drawn_card.type === "major_arcana") draw_embed.setTitle(`:sparkles: I draw... ${drawn_card.name} ${cards_emoji_string}`)
@@ -141,7 +141,7 @@ export const Tarot: Command = {
                     .png()
                     .toBuffer()
 
-                const info_image_attachment = new AttachmentBuilder(info_image_buffer, { name: `${card.query}.png` })
+                const info_image_attachment = new AttachmentBuilder(info_image_buffer, { name: `${card.query.replaceAll(" ", "_")}.png` })
                 info_embed.setImage(`attachment://${info_image_attachment.name}`)
 
                 info_embed.setFields(
