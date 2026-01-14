@@ -16,7 +16,7 @@ async function handleSlashCommand(interaction: ChatInputCommandInteraction): Pro
         return
     }
 
-    if (interaction.user.id !== process.env.OWNER_ID! && !friends.includes(interaction.user.id) ) {
+    if (interaction.user.id !== process.env.OWNER_ID! && !friends.includes(interaction.user.id)) {
         const fail_embed: EmbedBuilder = new EmbedBuilder()
             .setColor(Color.accent)
             .setTitle("I only listen to Luna's requests :3")
