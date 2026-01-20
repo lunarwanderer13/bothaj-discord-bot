@@ -1,6 +1,6 @@
 {
   "name": "blapp-discord-bot",
-  "version": "1.4.4",
+  "version": "1.5.1",
   "description": "A bot for me with random unrelated ideas!",
   "main": "./src/index.ts",
   "repository": "https://github.com/lunarwanderer13/blapp-discord-bot",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "axios": "^1.13.2",
+    "color": "^5.0.3",
     "discord.js": "^14.25.1",
     "dotenv": "^17.2.3",
     "sharp": "^0.34.5",
