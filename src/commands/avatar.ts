@@ -12,6 +12,12 @@ export const Avatar: Command = {
             .setDescription("User whose avatar to get.")
             .setRequired(true)
         )
+
+        .addBooleanOption(option => option
+            .setName("censored")
+            .setDescription("Whether the avatar owner's username should be censored or not.")
+            .setRequired(false)
+        )
         
         .addBooleanOption(option => option
             .setName("hidden")
@@ -21,13 +27,17 @@ export const Avatar: Command = {
 
     async execute(interaction: ChatInputCommandInteraction): Promise<void> {
         const user: User | null = interaction.options.getUser("user")
+        const censored: boolean = interaction.options.getBoolean("censored") ?? false
         const hidden: boolean = interaction.options.getBoolean("hidden") ?? false
 
         if (user) {
             const avatar_embed: EmbedBuilder = new EmbedBuilder()
                 .setColor(Color.primary)
-                .setTitle(`${user.username}'s avatar`)
                 .setImage(user.avatarURL())
+
+                let username: string = user.username.replaceAll("*", "\\*").replaceAll("_", "\\_")
+                if (censored) username = username.split("").map(() => "█").join("")
+                avatar_embed.setTitle(`${username}'s avatar`)
 
             if (!hidden) {
                 await interaction.reply({ embeds: [avatar_embed] })
