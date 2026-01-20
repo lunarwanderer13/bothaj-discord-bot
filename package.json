@@ -1,6 +1,6 @@
 {
   "name": "blapp-discord-bot",
-  "version": "1.4.1",
+  "version": "1.4.4",
   "description": "A bot for me with random unrelated ideas!",
   "main": "./src/index.ts",
   "repository": "https://github.com/lunarwanderer13/blapp-discord-bot",
