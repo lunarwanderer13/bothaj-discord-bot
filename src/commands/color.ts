@@ -292,12 +292,6 @@ export const Color: Command = {
             .setColor(col(color_values, color_type).rgbNumber())
             .setTitle(`Here's your **${color_type}(${Object.values(color_values).join(", ")})**`)
 
-        let description: string = ""
-        for (const [key, value] of Object.entries(color_values)) {
-            description += `**${key}**: ${value}\n`
-        }
-        if (description) embed.setDescription(description)
-
         if (!hidden) {
             await interaction.reply({ embeds: [embed], files: [attachment] })
         } else {
